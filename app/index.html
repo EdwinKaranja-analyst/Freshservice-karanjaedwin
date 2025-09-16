@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fraud Investigation Center</title>
+    <link rel="stylesheet" type="text/css" href="https://static.freshworks.com/fdk/2.0/assets/freshservice.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Tab Navigation -->
+        <div class="tab-header">
+            <div class="tabs">
+                <button class="tab active" data-view="parent">
+                    <span class="tab-icon">🏠</span>
+                    <span class="tab-text">Parent Cases</span>
+                </button>
+                <button class="tab" data-view="desk">
+                    <span class="tab-icon">💻</span>
+                    <span class="tab-text">Desk Analysis</span>
+                </button>
+                <button class="tab" data-view="field">
+                    <span class="tab-icon">🚗</span>
+                    <span class="tab-text">Field Investigation</span>
+                </button>
+            </div>
+            <div class="quick-stats">
+                <div class="stat">
+                    <span id="total-count">-</span>
+                    <label>Total Active</label>
+                </div>
+                <div class="stat">
+                    <span id="desk-count">-</span>
+                    <label>Desk Queue</label>
+                </div>
+                <div class="stat">
+                    <span id="field-count">-</span>
+                    <label>Field Queue</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading indicator -->
+        <div id="loading" class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading tickets...</p>
+        </div>
+        
+        <!-- Content Frame -->
+        <iframe id="ticket-frame" class="content-frame"></iframe>
+    </div>
+    
+    <script src="https://static.freshworks.com/fdk/2.0/assets/freshservice.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
