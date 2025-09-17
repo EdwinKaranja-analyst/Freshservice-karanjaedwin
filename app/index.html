@@ -2,52 +2,96 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fraud Investigation Center</title>
     <link rel="stylesheet" type="text/css" href="https://static.freshworks.com/fdk/2.0/assets/freshservice.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
     <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <h1 class="app-title">🔍 Fraud Investigation Center</h1>
+            <div class="user-info">
+                Welcome, <span id="agentName">Loading...</span> | 
+                Last refresh: <span id="lastRefresh">-</span>
+            </div>
+        </div>
+
         <!-- Tab Navigation -->
-        <div class="tab-header">
+        <div class="tabs-container">
             <div class="tabs">
-                <button class="tab active" data-view="parent">
-                    <span class="tab-icon">🏠</span>
-                    <span class="tab-text">Parent Cases</span>
+                <button class="tab active" data-stage="initial">
+                    <span>📋</span>
+                    <span>Initial Review</span>
                 </button>
-                <button class="tab" data-view="desk">
-                    <span class="tab-icon">💻</span>
-                    <span class="tab-text">Desk Analysis</span>
+                <button class="tab" data-stage="desk">
+                    <span>💻</span>
+                    <span>Desk Analysis</span>
                 </button>
-                <button class="tab" data-view="field">
-                    <span class="tab-icon">🚗</span>
-                    <span class="tab-text">Field Investigation</span>
+                <button class="tab" data-stage="field">
+                    <span>🚗</span>
+                    <span>Field Investigation</span>
                 </button>
             </div>
-            <div class="quick-stats">
-                <div class="stat">
-                    <span id="total-count">-</span>
-                    <label>Total Active</label>
+            
+            <!-- Statistics Bar -->
+            <div class="tab-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-initial">0</div>
+                    <div class="stat-label">Initial Review</div>
                 </div>
-                <div class="stat">
-                    <span id="desk-count">-</span>
-                    <label>Desk Queue</label>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-desk">0</div>
+                    <div class="stat-label">Desk Analysis</div>
                 </div>
-                <div class="stat">
-                    <span id="field-count">-</span>
-                    <label>Field Queue</label>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-field">0</div>
+                    <div class="stat-label">Field Investigation</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-total">0</div>
+                    <div class="stat-label">Total Active</div>
                 </div>
             </div>
         </div>
-        
-        <!-- Loading indicator -->
-        <div id="loading" class="loading-container">
-            <div class="spinner"></div>
-            <p>Loading tickets...</p>
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <!-- Ticket List Panel -->
+            <div class="ticket-list-panel">
+                <div class="filter-bar">
+                    <input type="text" 
+                           class="filter-input" 
+                           id="searchInput" 
+                           placeholder="Search by ticket # or subject...">
+                    <select class="filter-select" id="priorityFilter">
+                        <option value="">All Priorities</option>
+                        <option value="4">Urgent</option>
+                        <option value="3">High</option>
+                        <option value="2">Medium</option>
+                        <option value="1">Low</option>
+                    </select>
+                </div>
+                <div id="ticketList" class="ticket-list">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading tickets...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ticket Details Panel -->
+            <div class="ticket-details-panel" id="ticketDetails">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📄</div>
+                    <p>Select a ticket to view details</p>
+                </div>
+            </div>
         </div>
-        
-        <!-- Content Frame -->
-        <iframe id="ticket-frame" class="content-frame"></iframe>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast"></div>
     </div>
     
     <script src="https://static.freshworks.com/fdk/2.0/assets/freshservice.js"></script>
