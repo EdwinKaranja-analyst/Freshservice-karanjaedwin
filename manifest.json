@@ -5,17 +5,13 @@
   "description": "Fraud Investigation Tab System",
   "author": {
     "name": "Edwin Karanja",
-    "email": "your.email@example.com"
+    "email": "edwin.karanja@example.com"
   },
   "product": {
     "freshservice": {
       "location": {
         "full_page_app": {
           "url": "index.html",
-          "icon": "icon.svg"
-        },
-        "navigation_bar_menu": {
-          "display_name": "Fraud Investigation",
           "icon": "icon.svg"
         }
       }
