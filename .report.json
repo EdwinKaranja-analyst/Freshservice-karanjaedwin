@@ -1,5 +1,21 @@
 {
-  "lints": [],
+  "lints": [
+    {
+      "severity": 1,
+      "value": "app\\scripts\\app.js::15: 'appClient' declared and assigned in different scopes. Possible asynchronous race condition.",
+      "type": "custom-js-lint"
+    },
+    {
+      "severity": 1,
+      "value": "app\\scripts\\app.js::51: 'activeView' declared and assigned in different scopes. Possible asynchronous race condition.",
+      "type": "custom-js-lint"
+    },
+    {
+      "severity": 1,
+      "value": "app\\scripts\\app.js::64: 'allTickets' declared and assigned in different scopes. Possible asynchronous race condition.",
+      "type": "custom-js-lint"
+    }
+  ],
   "coverage": {
     "app\\scripts\\app.js": {
       "path": "app\\scripts\\app.js",
@@ -4166,11 +4182,11 @@
         }
       },
       "s": {
-        "0": 1,
-        "1": 1,
-        "2": 1,
-        "3": 1,
-        "4": 1,
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
         "5": 0,
         "6": 0,
         "7": 0,
@@ -4338,12 +4354,12 @@
         "169": 0,
         "170": 0,
         "171": 0,
-        "172": 1,
-        "173": 1,
-        "174": 1
+        "172": 2,
+        "173": 2,
+        "174": 2
       },
       "f": {
-        "0": 1,
+        "0": 2,
         "1": 0,
         "2": 0,
         "3": 0,

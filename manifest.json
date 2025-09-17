@@ -5,7 +5,7 @@
   "description": "Fraud Investigation Tab System",
   "author": {
     "name": "Edwin Karanja",
-    "email": "edwin.karanja@example.com"
+    "email": "your.email@example.com"
   },
   "product": {
     "freshservice": {
@@ -20,5 +20,37 @@
   "engines": {
     "node": "18.20.4",
     "fdk": "9.6.0"
-  }
+  },
+  "requests": {
+    "getTickets": {
+      "schema": {
+        "method": "GET",
+        "protocol": "https",
+        "host": "<%= iparam.domain %>.freshservice.com",
+        "path": "/api/v2/tickets?<%= context.filter %>",
+        "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  },
+    "iparams": {
+      "domain": {
+        "display_name": "Freshservice Domain",
+        "description": "Your Freshservice subdomain (without .freshservice.com)",
+        "type": "domain",
+        "required": true
+      },
+      "api_key": {
+        "display_name": "API Key",
+        "description": "Your Freshservice API key",
+        "type": "password",
+        "required": true
+      }
+    }
 }
+
+
+
+
